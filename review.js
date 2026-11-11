@@ -13,7 +13,7 @@
  const categories=['All snacks','Sticks','Crisps','Mixes','Assortments'];
  const q=new URLSearchParams(location.search);
  const validState=s=>({design:designs[s.design]?s.design:'a',page:pages.includes(s.page)?s.page:'home',product:products.some(p=>p[0]===s.product)?s.product:products[0][0],category:categories.includes(s.category)?s.category:'All snacks',audience:s.audience==='business'?'business':'consumer'});
- let state=validState(Object.fromEntries(q));let width=['desktop','tablet','mobile'].includes(q.get('viewport'))?q.get('viewport'):'desktop';
+ let state=validState(Object.fromEntries(q));let width=['desktop','tablet','mobile'].includes(q.get('viewport'))?q.get('viewport'):'desktop';let loading=false,pendingUrl='';
  const frame=document.getElementById('preview-frame'),pageSelect=document.getElementById('page-select'),productSelect=document.getElementById('product-select');
  document.getElementById('option-grid').innerHTML=Object.entries(designs).map(([key,d])=>`<button class="option-card" data-design="${key}" aria-pressed="false"><img src="assets/option-${key}.webp" width="900" height="625" alt="Homepage preview of ${d.name}"><div class="option-card-copy"><span class="option-letter">${key.toUpperCase()}</span><div><h3>${d.name}</h3><p>${d.description}</p></div><span class="option-arrow" aria-hidden="true">↗</span></div></button>`).join('');
  productSelect.innerHTML=products.map(([slug,name])=>`<option value="${slug}">${name}</option>`).join('');
@@ -24,13 +24,25 @@
   pageSelect.value=state.page;productSelect.value=state.product;document.getElementById('product-field').hidden=!['product','contact'].includes(state.page);
   document.getElementById('current-letter').textContent=state.design.toUpperCase();document.getElementById('current-name').textContent=d.name;
   const path=d.folder+'/site.html?'+new URLSearchParams(state);document.getElementById('full-preview').href=path;frame.title=`Organiya — ${d.name} preview`;frame.className=width;
-  if(load){frame.style.height='1000px';frame.src=path;document.getElementById('link-status').textContent='';}
+  if(load){loading=true;pendingUrl=new URL(path,location.href).href;frame.style.height='1000px';frame.src=path;document.getElementById('link-status').textContent='';}
   history.replaceState(null,'','?'+new URLSearchParams({...state,viewport:width}));dimensions();
  }
  document.querySelectorAll('[data-design]').forEach(b=>b.addEventListener('click',()=>{state.design=b.dataset.design;sync();document.getElementById('preview').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});}));
  document.querySelectorAll('[data-width]').forEach(b=>b.addEventListener('click',()=>{width=b.dataset.width;sync(false);}));
  pageSelect.addEventListener('change',()=>{state.page=pageSelect.value;sync();});productSelect.addEventListener('change',()=>{state.product=productSelect.value;sync();});
- window.addEventListener('message',e=>{if(e.source!==frame.contentWindow||e.origin!==location.origin||e.data?.type!=='organiya-preview')return;if(e.data.state&&designs[e.data.state.design]){state=validState(e.data.state);sync(false);}if(Number.isFinite(e.data.height)&&e.data.height>0&&e.data.height<100000)frame.style.height=Math.max(500,e.data.height)+'px';});
+ frame.addEventListener('load',()=>{
+  if(!loading||frame.contentWindow.location.href!==pendingUrl)return;
+  loading=false;const app=frame.contentDocument.getElementById('app');
+  if(app)frame.style.height=Math.max(500,Math.ceil(Math.max(app.scrollHeight,app.getBoundingClientRect().height)))+'px';
+  dimensions();
+ });
+ window.addEventListener('message',e=>{
+  if(loading||e.source!==frame.contentWindow||e.origin!==location.origin||e.data?.type!=='organiya-preview'||e.data.state?.design!==state.design)return;
+  const actual=validState(Object.fromEntries(new URL(frame.contentWindow.location.href).searchParams));
+  if(Object.keys(actual).some(key=>actual[key]!==e.data.state[key]))return;
+  state=actual;sync(false);
+  if(Number.isFinite(e.data.height)&&e.data.height>0&&e.data.height<100000)frame.style.height=Math.max(500,e.data.height)+'px';
+ });
  new ResizeObserver(dimensions).observe(frame);
  document.getElementById('copy-link').addEventListener('click',async()=>{const status=document.getElementById('link-status');try{await navigator.clipboard.writeText(location.href);status.textContent='Link copied. It opens this design, page and product.';}catch{status.textContent='Copy the URL from your browser address bar to share this view.';}});
  document.getElementById('feedback-form').addEventListener('submit',async e=>{
