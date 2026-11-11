@@ -1,7 +1,10 @@
 (() => {
  'use strict';
  const designs={
-  selected:{name:'Selected option',description:'Mango & Forest · Refined from O, with clearer product discovery and supplied food photography.',folder:'selected'},
+  p:{name:'Everyday Pantry',description:'New · Organiya green, mango and food-family colours. O-inspired cards with expandable product details.',folder:'p-r'},
+  q:{name:'Pantry Market',description:'New · A colourful, organised pantry. Browse by food family and explore compact, tabbed product pages.',folder:'p-r'},
+  r:{name:'The Organiya Table',description:'New · Forest, cream and clay. Spacious food stories and larger editorial product pages.',folder:'p-r'},
+  selected:{name:'Earlier selected',description:'Previous Mango & Forest direction, kept for comparison with the new pantry options.',folder:'selected'},
   a:{name:'Botanical Editorial',description:'Warm ivory, botanical green and spacious editorial storytelling.',folder:'a-c'},
   b:{name:'Contemporary Crunch',description:'Lime, bold typography and an energetic snack identity.',folder:'a-c'},
   c:{name:'Modern Pantry',description:'Quiet sage, precise grids and clear catalog browsing.',folder:'a-c'},
@@ -18,20 +21,26 @@
   n:{name:'Kokum & Rose',description:'From F · Rich kokum plum, rose and a touch of golden warmth.',folder:'m-o'},
   o:{name:'Mango & Pistachio',description:'From F · Ripe mango tones, pistachio green and a fresh, sunny feel.',folder:'m-o'}
  };
+ const hiddenDesigns=new Set(['a','c','e','g','h','j','m','n']);
+ const visibleKeys=['p','q','r','o','b','d','f','i','k','l','selected'];
+ const visibleDesigns=visibleKeys.map(key=>[key,designs[key]]);
+ const pantryDesigns=['p','q','r'];
+ const families=['snacks','pulses','spices','cookies'];
  const products=[['chia-crunch-sticks','Chia Crunch Sticks'],['flax-crunch-sticks','Flax Crunch Sticks'],['millet-crunch-crisps','Millet Crunch Crisps'],['veggie-crisps','Veggie Crisps'],['protein-crunch-mix','Protein Crunch Mix'],['smart-snacking-variety-pack','Smart Snacking Variety Pack']];
  const pages=['home','catalog','product','about','distributors','contact'];
  const categories=['All snacks','Sticks','Crisps','Mixes','Assortments'];
  const q=new URLSearchParams(location.search);
- const validState=s=>({design:designs[s.design]?s.design:'selected',page:pages.includes(s.page)?s.page:'home',product:products.some(p=>p[0]===s.product)?s.product:products[0][0],category:categories.includes(s.category)?s.category:'All snacks',audience:s.audience==='business'?'business':'consumer'});
+ const validState=s=>{const design=designs[s.design]&&!hiddenDesigns.has(s.design)?s.design:'p';const next={design,page:pages.includes(s.page)?s.page:'home',product:products.some(p=>p[0]===s.product)?s.product:products[0][0],category:categories.includes(s.category)?s.category:'All snacks',audience:s.audience==='business'?'business':'consumer'};if(pantryDesigns.includes(design))next.family=next.page==='product'?'snacks':families.includes(s.family)?s.family:'snacks';return next;};
  let state=validState(Object.fromEntries(q));let width=['desktop','tablet','mobile'].includes(q.get('viewport'))?q.get('viewport'):'desktop';let loading=false,pendingUrl='';
  const frame=document.getElementById('preview-frame'),pageSelect=document.getElementById('page-select'),productSelect=document.getElementById('product-select');
- document.getElementById('option-grid').innerHTML=Object.entries(designs).map(([key,d])=>`<button id="option-${key}" class="option-card" data-design="${key}" aria-pressed="false"><img src="assets/option-${key}.webp" width="900" height="625" alt="Homepage preview of ${d.name}"><div class="option-card-copy"><span class="option-letter">${key==='selected'?'✓':key.toUpperCase()}</span><div><h3>${d.name}</h3><p>${d.description}</p></div><span class="option-arrow" aria-hidden="true">↗</span></div></button>`).join('');
+ document.getElementById('option-grid').innerHTML=visibleDesigns.map(([key,d])=>`<button id="option-${key}" class="option-card" data-design="${key}" aria-pressed="false"><img src="assets/option-${key}.webp" width="900" height="625" alt="Homepage preview of ${d.name}"><div class="option-card-copy"><span class="option-letter">${key==='selected'?'✓':key.toUpperCase()}</span><div><h3>${d.name}</h3><p>${d.description}</p></div><span class="option-arrow" aria-hidden="true">↗</span></div></button>`).join('');
  productSelect.innerHTML=products.map(([slug,name])=>`<option value="${slug}">${name}</option>`).join('');
- document.getElementById('preference').insertAdjacentHTML('beforeend',Object.entries(designs).map(([key,d])=>`<option value="${key}">${key==='selected'?'Selected':key.toUpperCase()} — ${key==='selected'?'Mango & Forest':d.name}</option>`).join(''));
+ document.getElementById('preference').insertAdjacentHTML('beforeend',visibleDesigns.map(([key,d])=>`<option value="${key}">${key==='selected'?'Earlier':key.toUpperCase()} — ${d.name}</option>`).join(''));
  function dimensions(){document.getElementById('viewport-label').textContent=`${Math.round(frame.getBoundingClientRect().width)}px · ${width==='desktop'?'Responsive desktop':width==='tablet'?'Tablet':'Mobile'} preview`;}
  function sync(load=true){
+  state=validState(state);
   const d=designs[state.design];document.querySelectorAll('[data-design]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.design===state.design)));document.querySelectorAll('[data-width]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.width===width)));
-  pageSelect.value=state.page;productSelect.value=state.product;document.getElementById('product-field').hidden=!['product','contact'].includes(state.page);
+  pageSelect.value=state.page;productSelect.value=state.product;document.getElementById('product-field').hidden=!['product','contact'].includes(state.page)||(pantryDesigns.includes(state.design)&&state.page==='contact'&&state.family!=='snacks');
   document.getElementById('current-letter').textContent=state.design==='selected'?'✓':state.design.toUpperCase();document.getElementById('current-name').textContent=d.name;
   const path=d.folder+'/site.html?'+new URLSearchParams(state);document.getElementById('full-preview').href=path;frame.title=`Organiya — ${d.name} preview`;frame.className=width;
   if(load){loading=true;pendingUrl=new URL(path,location.href).href;frame.style.height='1000px';frame.src=path;document.getElementById('link-status').textContent='';}
@@ -39,7 +48,7 @@
  }
  document.querySelectorAll('[data-design]').forEach(b=>b.addEventListener('click',()=>{state.design=b.dataset.design;sync();document.getElementById('preview').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'instant':'smooth'});}));
  document.querySelectorAll('[data-width]').forEach(b=>b.addEventListener('click',()=>{width=b.dataset.width;sync(false);}));
- pageSelect.addEventListener('change',()=>{state.page=pageSelect.value;sync();});productSelect.addEventListener('change',()=>{state.product=productSelect.value;sync();});
+ pageSelect.addEventListener('change',()=>{state.page=pageSelect.value;sync();});productSelect.addEventListener('change',()=>{state.product=productSelect.value;if(pantryDesigns.includes(state.design))state.family='snacks';sync();});
  frame.addEventListener('load',()=>{
   if(!loading||frame.contentWindow.location.href!==pendingUrl)return;
   loading=false;const app=frame.contentDocument.getElementById('app');
@@ -57,7 +66,7 @@
  document.getElementById('copy-link').addEventListener('click',async()=>{const status=document.getElementById('link-status');try{await navigator.clipboard.writeText(location.href);status.textContent='Link copied. It opens this design, page and product.';}catch{status.textContent='Copy the URL from your browser address bar to share this view.';}});
  document.getElementById('feedback-form').addEventListener('submit',async e=>{
   e.preventDefault();const choice=document.getElementById('preference').value;const likes=document.getElementById('likes').value.trim(),changes=document.getElementById('changes').value.trim();
-  const text=`Organiya website design feedback\n\nPreferred direction: ${choice?(choice==='selected'?'Selected':choice.toUpperCase())+' — '+designs[choice].name:'Not decided yet'}\n\nWhat works well:\n${likes||'(Add your thoughts)'}\n\nWhat I would change:\n${changes||'(Add your thoughts)'}\n\nReview link: ${location.origin==='null'?location.href:location.origin+location.pathname}`;
+  const text=`Organiya website design feedback\n\nPreferred direction: ${choice?(choice==='selected'?'Earlier selected':choice.toUpperCase())+' — '+designs[choice].name:'Not decided yet'}\n\nWhat works well:\n${likes||'(Add your thoughts)'}\n\nWhat I would change:\n${changes||'(Add your thoughts)'}\n\nReview link: ${location.origin==='null'?location.href:location.origin+location.pathname}`;
   const status=document.getElementById('feedback-status'),fallback=document.getElementById('copy-fallback');
   try{await navigator.clipboard.writeText(text);fallback.hidden=true;status.textContent='Copied. Paste it into your reply to the person who shared this review. Nothing was sent by this page.';}catch{fallback.value=text;fallback.hidden=false;fallback.focus();fallback.select();status.textContent='Your feedback is ready below. Copy it and paste it into your reply. Nothing was sent by this page.';}
  });
