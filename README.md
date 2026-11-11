@@ -1,6 +1,6 @@
-# Organiya design review — A–F
+# Organiya design review — A–I
 
-Temporary static review site for six Organiya website design options.
+Temporary static review site for nine Organiya website design options.
 
 - Organiya is the website identity and India seller; Spicenza is the product brand.
 - Product and lifestyle imagery is illustrative.
@@ -8,7 +8,9 @@ Temporary static review site for six Organiya website design options.
 - The feedback worksheet copies text for reviewers to send through their own channels.
 - No analytics, accounts, payments, backend or production integrations are included.
 
-The root page compares A–F. `a-c/` and `d-f/` contain the independent prototypes.
+The root page compares A–I. `a-c/`, `d-f/` and `g-i/` contain the prototypes.
+G, H and I are greener refinements of F, using colours from the supplied Organiya
+and Spicenza logos. Both original logo artworks are preserved.
 The selected page and product are preserved when switching directions.
 
 This repository contains only the shareable prototype files and optimised assets.
