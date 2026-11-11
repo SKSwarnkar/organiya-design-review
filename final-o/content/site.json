@@ -1,0 +1,41 @@
+{
+  "name": "Organiya",
+  "legalName": "Organiya Global LLP",
+  "productBrand": "Spicenza",
+  "market": "India",
+  "email": "info@organiyaglobal.com",
+  "logo": "organiya-logo.svg",
+  "mark": "organiya-mark.svg",
+  "productLogo": "spicenza-logo.svg",
+  "announcement": "FOR ALL YOUR LITTLE IN-BETWEENS",
+  "nav": [
+    {
+      "page": "home",
+      "label": "Home"
+    },
+    {
+      "page": "catalog",
+      "label": "Spicenza snacks"
+    },
+    {
+      "page": "about",
+      "label": "Our story"
+    },
+    {
+      "page": "distributors",
+      "label": "For retailers"
+    }
+  ],
+  "footerTagline": [
+    "Thoughtful discoveries.",
+    "Everyday moments."
+  ],
+  "categories": [
+    "All snacks",
+    "Sticks",
+    "Crisps",
+    "Mixes",
+    "Assortments"
+  ],
+  "mode": "demo"
+}

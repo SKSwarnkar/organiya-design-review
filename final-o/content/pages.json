@@ -1,0 +1,162 @@
+{
+  "home": {
+    "eyebrow": "A LITTLE DISCOVERY, BY ORGANIYA",
+    "heading": [
+      {
+        "text": "Life happens."
+      },
+      {
+        "text": "Snack breaks",
+        "emphasis": true
+      },
+      {
+        "text": "should too."
+      }
+    ],
+    "intro": [
+      "For the chai catch-up. The desk-side pause.",
+      "The little moments that make up your day.",
+      "Meet Spicenza, in India with Organiya."
+    ],
+    "cta": "Find your next snack",
+    "image": "daily-tiffin",
+    "imageAlt": "An illustrative steel tiffin with seed sticks and veggie crisps beside a tea cup and notebook",
+    "note": [
+      "Take a break.",
+      "Make it yours."
+    ],
+    "finderHeading": [
+      {
+        "text": "What’s your"
+      },
+      {
+        "text": "snack moment?",
+        "emphasis": true
+      }
+    ],
+    "shelfTitle": "Hello, snack shelf.",
+    "shelfIntro": "Six Spicenza concepts. Plenty of ways to make them part of a break.",
+    "aboutTitle": [
+      "A familiar moment.",
+      "A new introduction."
+    ],
+    "aboutIntro": "Spicenza is the snack brand. Organiya is your India connection. We’re bringing the range into one place so you can explore, ask questions and find your next discovery."
+  },
+  "catalog": {
+    "heading": "Find your everyday favourite.",
+    "intro": [
+      "Seeds, millets, vegetables and roasted pulses.",
+      "Explore six ways to make a little more of your snack break."
+    ]
+  },
+  "story": {
+    "eyebrow": "THE ORGANIYA STORY",
+    "heading": [
+      {
+        "text": "Good food."
+      },
+      {
+        "text": "Little everyday moments.",
+        "emphasis": true
+      }
+    ],
+    "intro": [
+      "Introducing Spicenza’s snack range to India.",
+      "A clear place to discover the food, explore pairings and ask questions."
+    ],
+    "leadTitle": [
+      "Small breaks.",
+      "A little discovery."
+    ],
+    "paragraphs": [
+      "A cup of chai. A pause at your desk. A snack plate to share. These are the everyday moments around which this collection is introduced.",
+      "Organiya Global LLP is your seller and point of contact in India. Spicenza is the product brand, with seed-led sticks, millet crisps, vegetable snacks and a roasted pulse mix.",
+      "Our focus today is snacks: a clear catalog, useful product information and a straightforward conversation with Organiya."
+    ],
+    "image": "chai-table",
+    "imageAlt": "Illustrative chai table with snacks and chutneys",
+    "principles": [
+      {
+        "label": "01 / START WITH THE FOOD",
+        "title": "See it. Explore it.",
+        "copy": "Browse the snacks, take a closer look and discover serving ideas."
+      },
+      {
+        "label": "02 / KNOW THE CONNECTION",
+        "title": "Spicenza × Organiya.",
+        "copy": "Spicenza is the product brand. Organiya handles the India catalog and inquiries."
+      },
+      {
+        "label": "03 / ASK BEFORE YOU CHOOSE",
+        "title": "A simple conversation.",
+        "copy": "Talk to Organiya about availability, final labels or retail and distribution interest."
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Hello, snack person.",
+    "intro": [
+      "Product curiosity or a potential partnership.",
+      "Tell us what you have in mind."
+    ]
+  },
+  "distributors": {
+    "heading": [
+      "A little space",
+      "on your shelf?"
+    ],
+    "intro": [
+      "Interested in bringing Spicenza to your customers?",
+      "Start a conversation with Organiya about the India range."
+    ]
+  },
+  "moments": [
+    {
+      "key": "chai",
+      "label": "Chai time",
+      "time": "A little afternoon ritual",
+      "title": "Your cup’s new company.",
+      "copy": "Put the kettle on. Discover chia sticks with your favourite tea and a chutney on the side.",
+      "slug": "chia-crunch-sticks",
+      "color": "#f7d6bc"
+    },
+    {
+      "key": "desk",
+      "label": "Desk break",
+      "time": "Between one thing and the next",
+      "title": "Make a little space.",
+      "copy": "Pause the to-do list. Explore the roasted pulse mix as a desk-side snack concept.",
+      "slug": "protein-crunch-mix",
+      "color": "#dce4f5"
+    },
+    {
+      "key": "out",
+      "label": "On the go",
+      "time": "A small pause in a busy day",
+      "title": "A different kind of crunch.",
+      "copy": "Explore flax sticks for your snack-break ideas. Final pack formats and availability will be confirmed.",
+      "slug": "flax-crunch-sticks",
+      "color": "#e5dfb9"
+    },
+    {
+      "key": "share",
+      "label": "To share",
+      "time": "A table with room for more",
+      "title": "A little of everything.",
+      "copy": "Bring your curiosity and discover the assortment together. Final pack contents are to be confirmed.",
+      "slug": "smart-snacking-variety-pack",
+      "color": "#ead3e6"
+    }
+  ],
+  "partner": {
+    "heading": [
+      "Good things are",
+      "better shared."
+    ],
+    "intro": [
+      "Bring the Spicenza snack range to your customers.",
+      "Let’s explore an India retail or distribution partnership."
+    ],
+    "cta": "Partner with Organiya"
+  }
+}

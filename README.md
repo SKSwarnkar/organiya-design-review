@@ -1,35 +1,17 @@
-# Organiya pantry design review — P, Q, R and shortlist
+# Organiya design review — finalized Option O
 
-Temporary static review site for a food identity that can grow beyond snacks.
+Option O is the chosen direction for a snack-only India catalog and inquiry launch. The root review opens **Finalized O — Mango & Pistachio** from `final-o/`.
 
-The root page opens **P — Everyday Pantry**, followed by **Q — Pantry Market** and **R — The Organiya Table**. These three new directions use O’s six styled illustrative product images and rounded cards, with different home, catalog, product detail, About, retailer and Contact layouts.
+Its original palette, cards, home composition and product artwork are preserved. The bounded refinements add catalog search, a modular multi-image product gallery, an enlarged image view, serving-moment cards and a clearer snack-focused Our Story page.
 
-| Direction | Identity and browsing | Product details |
-| --- | --- | --- |
-| P — Everyday Pantry | Closest to O; Organiya green, cream, mango and food-family accents; horizontal family browsing | Clear image and product introduction, expandable information and serving ideas |
-| Q — Pantry Market | Organised catalog; compact cards, search and a browse rail on desktop | Keyboard-accessible information buttons for overview, serving ideas and product details |
-| R — The Organiya Table | Forest, cream and clay; serif typography, larger cards and editorial pages | Larger imagery and numbered product stories |
+- `launch-plan.html` is the comprehensive production plan: pages, actual-SKU approval, asset/claim readiness, content model, editor, inquiry delivery, costs, phases, cutover, QA and operations.
+- `final-o/content/` holds site settings, page copy and product/gallery records. `final-o/CONTENT-GUIDE.md` explains editing and media approval.
+- The prototype uses semantic HTML, CSS and JavaScript modules. The proposed production stack is Astro, a content editor and static hosting, as detailed in the plan; those integrations are not claimed complete.
+- Product galleries show approved or clearly illustrative assets only. Unprovided pouch, nutrition, ingredients and family images are kept out of the rendered gallery. No numeric nutrition claims are invented.
+- Organiya is the India seller and website identity. Spicenza is the snack brand. No future-category navigation appears in the finalized O customer pages.
+- Inquiry forms remain local demonstrations: no submissions or personal-data persistence. Production is catalog + real inquiries first; no checkout or payment integration in this tranche.
+- The review launcher and launch plan remain separate from customer-facing layouts.
 
-Organiya green anchors each direction. Snacks use mango accents, planned pulses use leafy tones, spices use terracotta and cookies use cocoa. Both original logo artworks are preserved. Food families have text labels as well as colour cues.
+The visible reference order is O, P, Q, R, B, D, F, I, K, L, Earlier selected. A, C, E, G, H, J, M and N remain hidden in the chooser and feedback selector. Original `m-o/` O and the other historical prototype directories are preserved unchanged for comparison.
 
-The visible comparison order is **P, Q, R, O, B, D, F, I, K, L, Earlier selected**. A, C, E, G, H, J, M and N are hidden from the chooser, feedback selector and no-script links. Their original standalone prototype files are retained. A root review link requesting a hidden choice opens P.
-
-## Content and behavior
-
-- Organiya is the website identity and India seller. Spicenza is the current snack product brand.
-- The six snack concepts are Chia Crunch Sticks, Flax Crunch Sticks, Millet Crunch Crisps, Veggie Crisps, Protein Crunch Mix and Smart Snacking Variety Pack.
-- Pulses, spices and cookies are clearly labelled planned ranges. Their family pages lead to context-aware demo inquiries; no future products, recipes, prices or availability are invented.
-- Every new option covers Home, catalog, all six product details, About, Distributorship and Contact.
-- Category filters, snack search, empty states, mobile menus and keyboard controls work locally.
-- Switching designs preserves the current page and product. P/Q/R also preserve the selected food family. Earlier concepts keep their original snack-only experience.
-- Images are individually labelled illustrative or as references in earlier concepts. Product photos use 4:5 frames and `object-fit: contain`; decorative imagery may crop.
-- Forms validate locally and display “Demo only—nothing was sent.” They clear personal input and do not submit or persist data.
-- The feedback worksheet copies notes for reviewers to send through their own channels.
-
-## Implementation and hosting
-
-Semantic HTML, CSS Grid/Flexbox, lightweight JavaScript and shared content within each prototype group. No new design library, application framework, backend, analytics, accounts, payments or production integrations were added.
-
-`p-r/` contains the three new alternatives. `selected/`, `a-c/`, `d-f/`, `g-i/`, `j-l/` and `m-o/` retain the previous prototypes. Root files implement the independent review launcher. Review thumbnails use each option’s own homepage.
-
-This repository contains only shareable prototypes and optimised assets. It remains separate from production Organiya and Spicenza repositories. The public GitHub Pages site asks search engines not to index the temporary previews. To take it offline after review, disable GitHub Pages in this repository’s Settings.
+This is temporary public GitHub Pages review hosting, separate from both production repositories. Production DNS, email, live forms, databases and Spicenza runtime are unchanged. Search engines are asked not to index these previews. Disable GitHub Pages in repository Settings to take the review offline.

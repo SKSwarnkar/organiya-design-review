@@ -1,9 +1,9 @@
 (() => {
  'use strict';
  const designs={
-  p:{name:'Everyday Pantry',description:'New · Organiya green, mango and food-family colours. O-inspired cards with expandable product details.',folder:'p-r'},
-  q:{name:'Pantry Market',description:'New · A colourful, organised pantry. Browse by food family and explore compact, tabbed product pages.',folder:'p-r'},
-  r:{name:'The Organiya Table',description:'New · Forest, cream and clay. Spacious food stories and larger editorial product pages.',folder:'p-r'},
+  p:{name:'Everyday Pantry',description:'Earlier exploration · Organiya green, mango and food-family colours. O-inspired cards with expandable product details.',folder:'p-r'},
+  q:{name:'Pantry Market',description:'Earlier exploration · A colourful, organised pantry. Browse by food family and explore compact, tabbed product pages.',folder:'p-r'},
+  r:{name:'The Organiya Table',description:'Earlier exploration · Forest, cream and clay. Spacious food stories and larger editorial product pages.',folder:'p-r'},
   selected:{name:'Earlier selected',description:'Previous Mango & Forest direction, kept for comparison with the new pantry options.',folder:'selected'},
   a:{name:'Botanical Editorial',description:'Warm ivory, botanical green and spacious editorial storytelling.',folder:'a-c'},
   b:{name:'Contemporary Crunch',description:'Lime, bold typography and an energetic snack identity.',folder:'a-c'},
@@ -19,10 +19,10 @@
   l:{name:'Red Chai',description:'From F · Chai warmth, cocoa type and rich red accents together.',folder:'j-l'},
   m:{name:'Turmeric & Cream',description:'From F · Golden turmeric, toasted spice and warm cream.',folder:'m-o'},
   n:{name:'Kokum & Rose',description:'From F · Rich kokum plum, rose and a touch of golden warmth.',folder:'m-o'},
-  o:{name:'Mango & Pistachio',description:'From F · Ripe mango tones, pistachio green and a fresh, sunny feel.',folder:'m-o'}
+  o:{name:'Finalized O — Mango & Pistachio',description:'Chosen direction · O’s colours and cards, with snack search, a product gallery, serving moments and a clearer story.',folder:'final-o'}
  };
  const hiddenDesigns=new Set(['a','c','e','g','h','j','m','n']);
- const visibleKeys=['p','q','r','o','b','d','f','i','k','l','selected'];
+ const visibleKeys=['o','p','q','r','b','d','f','i','k','l','selected'];
  const visibleDesigns=visibleKeys.map(key=>[key,designs[key]]);
  const pantryDesigns=['p','q','r'];
  const families=['snacks','pulses','spices','cookies'];
@@ -30,7 +30,7 @@
  const pages=['home','catalog','product','about','distributors','contact'];
  const categories=['All snacks','Sticks','Crisps','Mixes','Assortments'];
  const q=new URLSearchParams(location.search);
- const validState=s=>{const design=designs[s.design]&&!hiddenDesigns.has(s.design)?s.design:'p';const next={design,page:pages.includes(s.page)?s.page:'home',product:products.some(p=>p[0]===s.product)?s.product:products[0][0],category:categories.includes(s.category)?s.category:'All snacks',audience:s.audience==='business'?'business':'consumer'};if(pantryDesigns.includes(design))next.family=next.page==='product'?'snacks':families.includes(s.family)?s.family:'snacks';return next;};
+ const validState=s=>{const design=designs[s.design]&&!hiddenDesigns.has(s.design)?s.design:'o';const next={design,page:pages.includes(s.page)?s.page:'home',product:products.some(p=>p[0]===s.product)?s.product:products[0][0],category:categories.includes(s.category)?s.category:'All snacks',audience:s.audience==='business'?'business':'consumer'};if(pantryDesigns.includes(design))next.family=next.page==='product'?'snacks':families.includes(s.family)?s.family:'snacks';return next;};
  let state=validState(Object.fromEntries(q));let width=['desktop','tablet','mobile'].includes(q.get('viewport'))?q.get('viewport'):'desktop';let loading=false,pendingUrl='';
  const frame=document.getElementById('preview-frame'),pageSelect=document.getElementById('page-select'),productSelect=document.getElementById('product-select');
  document.getElementById('option-grid').innerHTML=visibleDesigns.map(([key,d])=>`<button id="option-${key}" class="option-card" data-design="${key}" aria-pressed="false"><img src="assets/option-${key}.webp" width="900" height="625" alt="Homepage preview of ${d.name}"><div class="option-card-copy"><span class="option-letter">${key==='selected'?'✓':key.toUpperCase()}</span><div><h3>${d.name}</h3><p>${d.description}</p></div><span class="option-arrow" aria-hidden="true">↗</span></div></button>`).join('');
