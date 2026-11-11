@@ -103,3 +103,6 @@
  .design-n .daily-small-note .spicenza-signature{width:104px;padding:7px 9px}
  .design-n .daily-small-note>span:last-child{font-size:6.5px}
 }
+
+/* Keep shared O review links aligned with the finalized announcement. */
+.design-o .announcement{background:#b4c77b;color:#2f4a28;font-size:12px;line-height:1.6;letter-spacing:.04em;padding:10px 20px;text-align:center}
