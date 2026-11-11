@@ -6,3 +6,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 .header-review-links{display:flex;align-items:center;gap:25px;font-size:12px}.header-review-links a:first-child{color:#427126}.section-title strong{font-weight:600;color:#345936}#option-g,#option-h,#option-i{border-top:3px solid #6d9c39}@media(max-width:650px){.header-review-links{font-size:10px;gap:8px;flex-direction:column;align-items:flex-end}}
+
+#option-j{border-top:3px solid #e34234}#option-k{border-top:3px solid #79503a}#option-l{border-top:3px solid #a73527}.header-review-links a:first-child{color:#a73527}

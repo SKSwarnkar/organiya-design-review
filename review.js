@@ -9,7 +9,10 @@
   f:{name:'Everyday Good',description:'Peach and plum, soft shapes and everyday snack occasions.',folder:'d-f'},
   g:{name:'Leaf & Cream',description:'From F · Organiya leaf green, warm cream and soft botanical tones.',folder:'g-i'},
   h:{name:'Fresh Lime',description:'From F · Bright lime accents, clear greens and an upbeat everyday feel.',folder:'g-i'},
-  i:{name:'Forest & Sage',description:'From F · Spicenza forest green, pale sage and richer contrast.',folder:'g-i'}
+  i:{name:'Forest & Sage',description:'From F · Spicenza forest green, pale sage and richer contrast.',folder:'g-i'},
+  j:{name:'Vermilion & Cream',description:'From F · Organiya vermilion, warm ivory and a soft red glow.',folder:'j-l'},
+  k:{name:'Chai & Cocoa',description:'From F · Deep cocoa, caramel and comforting chai tones from D.',folder:'j-l'},
+  l:{name:'Red Chai',description:'From F · Chai warmth, cocoa type and rich red accents together.',folder:'j-l'}
  };
  const products=[['chia-crunch-sticks','Chia Crunch Sticks'],['flax-crunch-sticks','Flax Crunch Sticks'],['millet-crunch-crisps','Millet Crunch Crisps'],['veggie-crisps','Veggie Crisps'],['protein-crunch-mix','Protein Crunch Mix'],['smart-snacking-variety-pack','Smart Snacking Variety Pack']];
  const pages=['home','catalog','product','about','distributors','contact'];
