@@ -12,7 +12,10 @@
   i:{name:'Forest & Sage',description:'From F · Spicenza forest green, pale sage and richer contrast.',folder:'g-i'},
   j:{name:'Vermilion & Cream',description:'From F · Organiya vermilion, warm ivory and a soft red glow.',folder:'j-l'},
   k:{name:'Chai & Cocoa',description:'From F · Deep cocoa, caramel and comforting chai tones from D.',folder:'j-l'},
-  l:{name:'Red Chai',description:'From F · Chai warmth, cocoa type and rich red accents together.',folder:'j-l'}
+  l:{name:'Red Chai',description:'From F · Chai warmth, cocoa type and rich red accents together.',folder:'j-l'},
+  m:{name:'Turmeric & Cream',description:'From F · Golden turmeric, toasted spice and warm cream.',folder:'m-o'},
+  n:{name:'Kokum & Rose',description:'From F · Rich kokum plum, rose and a touch of golden warmth.',folder:'m-o'},
+  o:{name:'Mango & Pistachio',description:'From F · Ripe mango tones, pistachio green and a fresh, sunny feel.',folder:'m-o'}
  };
  const products=[['chia-crunch-sticks','Chia Crunch Sticks'],['flax-crunch-sticks','Flax Crunch Sticks'],['millet-crunch-crisps','Millet Crunch Crisps'],['veggie-crisps','Veggie Crisps'],['protein-crunch-mix','Protein Crunch Mix'],['smart-snacking-variety-pack','Smart Snacking Variety Pack']];
  const pages=['home','catalog','product','about','distributors','contact'];
