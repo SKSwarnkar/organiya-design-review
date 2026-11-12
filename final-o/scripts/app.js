@@ -1,12 +1,12 @@
-import {products,site,copy,state,setState,readState,product,notifyParent,loadContent} from './runtime.js';
-import {header,footer,photo,link} from './components.js';
-import {home,momentPanel} from './pages/home.js';
-import {catalog,renderProducts} from './pages/catalog.js';
-import {productPage} from './pages/product.js';
-import {about} from './pages/story.js';
-import {distributors} from './pages/distributors.js';
-import {contact} from './pages/contact.js';
-import {galleryClick,galleryDialog,bindGallery} from './gallery.js';
+import {products,site,copy,state,setState,readState,product,notifyParent,loadContent} from './runtime.js?v=10';
+import {header,footer,photo,link} from './components.js?v=10';
+import {home,momentPanel} from './pages/home.js?v=10';
+import {catalog,renderProducts} from './pages/catalog.js?v=10';
+import {productPage} from './pages/product.js?v=10';
+import {about} from './pages/story.js?v=10';
+import {distributors} from './pages/distributors.js?v=10';
+import {contact} from './pages/contact.js?v=10';
+import {galleryClick,galleryDialog,bindGallery} from './gallery.js?v=10';
 const app=document.getElementById('app');let searchTerm='';
 function render(scroll=false){
     document.body.className='design-f design-'+state.design;

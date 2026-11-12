@@ -16,11 +16,11 @@
     "intro": [
       "For the chai catch-up. The desk-side pause.",
       "The little moments that make up your day.",
-      "Meet Spicenza, in India with Organiya."
+      "Something crunchy is in the making. Meet the upcoming Spicenza range, with Organiya in India."
     ],
-    "cta": "Find your next snack",
-    "image": "daily-tiffin",
-    "imageAlt": "An illustrative steel tiffin with seed sticks and veggie crisps beside a tea cup and notebook",
+    "cta": "Explore what’s coming",
+    "image": "chai-sharing-v2",
+    "imageAlt": "AI-generated serving scene inspired by reference snacks: ridged sticks and crisps with chai",
     "note": [
       "Take a break.",
       "Make it yours."
@@ -35,18 +35,18 @@
       }
     ],
     "shelfTitle": "Hello, snack shelf.",
-    "shelfIntro": "Six Spicenza concepts. Plenty of ways to make them part of a break.",
+    "shelfIntro": "Six snack ideas in the making. Discover the range we’re preparing for India.",
     "aboutTitle": [
       "A familiar moment.",
       "A new introduction."
     ],
-    "aboutIntro": "Spicenza is the snack brand. Organiya is your India connection. We’re bringing the range into one place so you can explore, ask questions and find your next discovery."
+    "aboutIntro": "Spicenza is the product brand. Organiya is preparing its introduction in India. For now, explore what’s in development, find serving inspiration and start a conversation."
   },
   "catalog": {
     "heading": "Find your everyday favourite.",
     "intro": [
-      "Seeds, millets, vegetables and roasted pulses.",
-      "Explore six ways to make a little more of your snack break."
+      "A first look at our upcoming Spicenza snacks.",
+      "Working product names and illustrative images introduce the range. Final details will follow at launch."
     ]
   },
   "story": {
@@ -61,20 +61,20 @@
       }
     ],
     "intro": [
-      "Introducing Spicenza’s snack range to India.",
-      "A clear place to discover the food, explore pairings and ask questions."
+      "Preparing to introduce Spicenza snacks in India.",
+      "Good food, familiar moments and a little anticipation."
     ],
     "leadTitle": [
       "Small breaks.",
       "A little discovery."
     ],
     "paragraphs": [
-      "A cup of chai. A pause at your desk. A snack plate to share. These are the everyday moments around which this collection is introduced.",
-      "Organiya Global LLP is your seller and point of contact in India. Spicenza is the product brand, with seed-led sticks, millet crisps, vegetable snacks and a roasted pulse mix.",
-      "Our focus today is snacks: a clear catalog, useful product information and a straightforward conversation with Organiya."
+      "A cup of chai. A pause at your desk. A snack plate to share. We’re building our first collection around the little moments that bring people together.",
+      "Organiya Global LLP is preparing Spicenza’s introduction in India. Spicenza is the product brand; Organiya is your local point of contact for the upcoming range.",
+      "Our focus today is snacks. This is an early look at what’s in development, with illustrative serving ideas. We’ll share final product details and availability when the range is ready."
     ],
-    "image": "chai-table",
-    "imageAlt": "Illustrative chai table with snacks and chutneys",
+    "image": "chai-sharing-v2",
+    "imageAlt": "AI-generated serving scene inspired by reference snacks: ridged sticks and crisps with chai",
     "principles": [
       {
         "label": "01 / START WITH THE FOOD",
@@ -89,9 +89,25 @@
       {
         "label": "03 / ASK BEFORE YOU CHOOSE",
         "title": "A simple conversation.",
-        "copy": "Talk to Organiya about availability, final labels or retail and distribution interest."
+        "copy": "Ask about the upcoming range or discuss future retail and distribution interest."
       }
-    ]
+    ],
+    "occasions": [
+      {
+        "image": "india-family-v2",
+        "title": "A festive evening. A little togetherness.",
+        "copy": "Chai, familiar faces and a table made for sharing. An Indian festive-season serving inspiration.",
+        "alt": "AI-generated Indian family gathering with chai and bowls of ridged snacks during the festive season."
+      },
+      {
+        "image": "usa-family-v2",
+        "title": "A weekend table, with room for more.",
+        "copy": "A relaxed American family lunch, with picnic favourites and a bowl of crunch. Serving inspiration from another table.",
+        "alt": "AI-generated American family at a backyard picnic with snacks, corn, veggie sliders and apple pie."
+      }
+    ],
+    "occasionsHeading": "Different tables. The same joy of sharing.",
+    "occasionsNote": "AI-generated lifestyle illustrations, inspired by product references. These scenes are serving ideas; Organiya’s planned launch market remains India."
   },
   "contact": {
     "heading": "Hello, snack person.",
@@ -106,8 +122,8 @@
       "on your shelf?"
     ],
     "intro": [
-      "Interested in bringing Spicenza to your customers?",
-      "Start a conversation with Organiya about the India range."
+      "Interested in introducing Spicenza to your customers?",
+      "Explore our upcoming India range and discuss a future partnership."
     ]
   },
   "moments": [
@@ -116,7 +132,7 @@
       "label": "Chai time",
       "time": "A little afternoon ritual",
       "title": "Your cup’s new company.",
-      "copy": "Put the kettle on. Discover chia sticks with your favourite tea and a chutney on the side.",
+      "copy": "Imagine the pause: a warm cup of chai, a little chutney and a bowl of chia sticks. A serving idea for our upcoming range.",
       "slug": "chia-crunch-sticks",
       "color": "#f7d6bc"
     },
@@ -154,8 +170,8 @@
       "better shared."
     ],
     "intro": [
-      "Bring the Spicenza snack range to your customers.",
-      "Let’s explore an India retail or distribution partnership."
+      "Interested in our upcoming Spicenza snack range?",
+      "Let’s explore a future India retail or distribution partnership."
     ],
     "cta": "Partner with Organiya"
   }

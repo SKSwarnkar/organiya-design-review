@@ -19,7 +19,7 @@
   l:{name:'Red Chai',description:'From F · Chai warmth, cocoa type and rich red accents together.',folder:'j-l'},
   m:{name:'Turmeric & Cream',description:'From F · Golden turmeric, toasted spice and warm cream.',folder:'m-o'},
   n:{name:'Kokum & Rose',description:'From F · Rich kokum plum, rose and a touch of golden warmth.',folder:'m-o'},
-  o:{name:'Finalized O — Mango & Pistachio',description:'Chosen direction · O’s colours and cards, with snack search, a product gallery, serving moments and a clearer story.',folder:'final-o'}
+  o:{name:'Finalized O — Mango & Pistachio',description:'Chosen direction · Upcoming India snacks, reference-led imagery, family occasions, native-ratio galleries and the O colours and cards.',folder:'final-o'}
  };
  const hiddenDesigns=new Set(['a','c','e','g','h','j','m','n']);
  const visibleKeys=['o','p','q','r','b','d','f','i','k','l','selected'];
@@ -33,14 +33,14 @@
  const validState=s=>{const design=designs[s.design]&&!hiddenDesigns.has(s.design)?s.design:'o';const next={design,page:pages.includes(s.page)?s.page:'home',product:products.some(p=>p[0]===s.product)?s.product:products[0][0],category:categories.includes(s.category)?s.category:'All snacks',audience:s.audience==='business'?'business':'consumer'};if(pantryDesigns.includes(design))next.family=next.page==='product'?'snacks':families.includes(s.family)?s.family:'snacks';return next;};
  let state=validState(Object.fromEntries(q));let width=['desktop','tablet','mobile'].includes(q.get('viewport'))?q.get('viewport'):'desktop';let loading=false,pendingUrl='';
  const frame=document.getElementById('preview-frame'),pageSelect=document.getElementById('page-select'),productSelect=document.getElementById('product-select');
- document.getElementById('option-grid').innerHTML=visibleDesigns.map(([key,d])=>`<button id="option-${key}" class="option-card" data-design="${key}" aria-pressed="false"><img src="assets/option-${key}.webp${key==='o'?'?v=9':''}" width="900" height="625" alt="Homepage preview of ${d.name}"><div class="option-card-copy"><span class="option-letter">${key==='selected'?'✓':key.toUpperCase()}</span><div><h3>${d.name}</h3><p>${d.description}</p></div><span class="option-arrow" aria-hidden="true">↗</span></div></button>`).join('');
+ document.getElementById('option-grid').innerHTML=visibleDesigns.map(([key,d])=>`<button id="option-${key}" class="option-card" data-design="${key}" aria-pressed="false"><img src="assets/option-${key}.webp${key==='o'?'?v=10':''}" width="900" height="625" alt="Homepage preview of ${d.name}"><div class="option-card-copy"><span class="option-letter">${key==='selected'?'✓':key.toUpperCase()}</span><div><h3>${d.name}</h3><p>${d.description}</p></div><span class="option-arrow" aria-hidden="true">↗</span></div></button>`).join('');
  productSelect.innerHTML=products.map(([slug,name])=>`<option value="${slug}">${name}</option>`).join('');
  document.getElementById('preference').insertAdjacentHTML('beforeend',visibleDesigns.map(([key,d])=>`<option value="${key}">${key==='selected'?'Earlier':key.toUpperCase()} — ${d.name}</option>`).join(''));
  function dimensions(){document.getElementById('viewport-label').textContent=`${Math.round(frame.getBoundingClientRect().width)}px · ${width==='desktop'?'Responsive desktop':width==='tablet'?'Tablet':'Mobile'} preview`;}
  function sync(load=true){
   state=validState(state);
   const d=designs[state.design];document.querySelectorAll('[data-design]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.design===state.design)));document.querySelectorAll('[data-width]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.width===width)));
-  pageSelect.value=state.page;productSelect.value=state.product;document.getElementById('product-field').hidden=!['product','contact'].includes(state.page)||(pantryDesigns.includes(state.design)&&state.page==='contact'&&state.family!=='snacks');
+  productSelect.querySelector('option[value="protein-crunch-mix"]').textContent=state.design==='o'?'Crunch Mix':'Protein Crunch Mix';pageSelect.value=state.page;productSelect.value=state.product;document.getElementById('product-field').hidden=!['product','contact'].includes(state.page)||(pantryDesigns.includes(state.design)&&state.page==='contact'&&state.family!=='snacks');
   document.getElementById('current-letter').textContent=state.design==='selected'?'✓':state.design.toUpperCase();document.getElementById('current-name').textContent=d.name;
   const path=d.folder+'/site.html?'+new URLSearchParams(state);document.getElementById('full-preview').href=path;frame.title=`Organiya — ${d.name} preview`;frame.className=width;
   if(load){loading=true;pendingUrl=new URL(path,location.href).href;frame.style.height='1000px';frame.src=path;document.getElementById('link-status').textContent='';}

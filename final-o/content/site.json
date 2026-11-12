@@ -37,5 +37,13 @@
     "Mixes",
     "Assortments"
   ],
-  "mode": "demo"
+  "mode": "demo",
+  "launchPhase": "upcoming",
+  "rangeNotice": "A little preview of what’s in the making. Our Spicenza snack range is being prepared for India. Final products, pack details and availability will be shared at launch. Not available to order yet.",
+  "productStatusLabel": "In the making",
+  "productCta": "Ask about this upcoming snack",
+  "sellerNote": "Spicenza is the product brand. Organiya Global LLP is preparing its introduction in India.",
+  "productInformation": "Final ingredients, allergens, nutrition, pack sizes and pricing will be published when the products are ready to launch. The range shown here is in development and is not available to order.",
+  "licenseNumber": null,
+  "commerceEnabled": false
 }
